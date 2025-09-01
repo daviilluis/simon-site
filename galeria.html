@@ -89,6 +89,30 @@
     button:hover {
         background: #f33d3d;
     }
+
+    /* 📱 Ajustes para celular */
+    @media (max-width: 768px) {
+        h1 { font-size: 22px; }
+        .gallery img {
+            width: calc(50% - 10px); /* 2 por linha no tablet/cel maior */
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 { font-size: 20px; }
+        .gallery img {
+            width: 100%; /* 1 por linha no celular pequeno */
+            max-width: none;
+        }
+        iframe {
+            height: 220px; /* vídeo mais baixo no celular */
+        }
+        button {
+            width: 100%;
+            font-size: 14px;
+            padding: 10px;
+        }
+    }
 </style>
 </head>
 <body>
@@ -120,3 +144,4 @@
 </script>
 </body>
 </html>
+
