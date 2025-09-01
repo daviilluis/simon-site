@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeria Simon Habibi 🍌</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('https://media.newyorker.com/photos/59095bb86552fa0be682d9d0/master/w_2560%2Cc_limit/Monkey-Selfie.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.4);
+        z-index: 1;
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+        background: rgba(255,255,255,0.15);
+        border-radius: 20px;
+        padding: 20px;
+        max-width: 800px;
+        width: 95%;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: #fff;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .gallery img {
+        width: calc(33% - 10px);
+        max-width: 180px;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.05);
+    }
+
+    iframe {
+        border-radius: 12px;
+        margin-top: 20px;
+        width: 90%;
+        max-width: 600px;
+        height: 340px;
+        border: none;
+    }
+
+    button {
+        background: #ff4e50;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        font-size: 16px;
+        border-radius: 8px;
+        margin-top: 15px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    button:hover {
+        background: #f33d3d;
+    }
+</style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Galeria Simon Habibi 🍌</h1>
+        <div class="gallery">
+            <img src="https://i.ibb.co/Csr3QXS/Imagem-do-Whats-App-de-2024-03-01-s-15-12-04-0afb214d.jpg" alt="Imagem 1">
+            <img src="https://i.ibb.co/HGYgG83/Imagem-do-Whats-App-de-2024-03-01-s-15-12-05-af253c31.jpg" alt="Imagem 2">
+            <img src="https://i.ibb.co/mcZnjjd/Imagem-do-Whats-App-de-2024-03-01-s-15-12-05-640aa4b5.jpg" alt="Imagem 3">
+            <img src="https://i.ibb.co/D8fLGyq/Imagem-do-Whats-App-de-2024-03-01-s-15-12-05-a8e06333.jpg" alt="Imagem 4">
+        </div>
+
+        <iframe src="https://player.vimeo.com/video/1114939788?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Vídeo do WhatsApp"></iframe>
+        
+        <br>
+        <button onclick="logout()">Sair</button>
+    </div>
+
+<script>
+    if(sessionStorage.getItem("auth")!=="true"){
+        window.location.href="login.html";
+    }
+    function logout(){
+        sessionStorage.removeItem("auth");
+        window.location.href="login.html";
+    }
+</script>
+</body>
+</html>
