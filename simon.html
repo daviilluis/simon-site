@@ -10,101 +10,91 @@
         margin: 0; padding: 0;
         display: flex; justify-content: center; align-items: center;
         height: 100vh;
-        background: url('https://media.newyorker.com/photos/59095bb86552fa0be682d9d0/master/w_2560%2Cc_limit/Monkey-Selfie.jpg') no-repeat center center fixed;
-        background-size: cover;
+        background: linear-gradient(135deg, #1e3c72, #2a5298); /* degradê azul moderno */
     }
 
     .overlay {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.3);
     }
 
     .container {
         position: relative; z-index: 2;
-        background: rgba(255,255,255,0.15);
-        border-radius: 20px; padding: 25px;
-        width: 90%; max-width: 350px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 20px; padding: 30px; width: 90%; max-width: 350px;
         text-align: center;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255,255,255,0.3);
         animation: fadeIn 1s ease-in-out;
         color: #fff;
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.9); }
-        to { opacity: 1; transform: scale(1); }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
-    h1 { margin-bottom: 20px; font-size: 24px; }
+    h1 { margin-bottom: 20px; font-size: 26px; }
 
     input[type="text"], input[type="password"] {
-        width: 100%; padding: 12px; margin: 10px 0;
-        border: 2px solid rgba(255,255,255,0.4); border-radius: 8px;
+        width: 100%; padding: 14px; margin: 10px 0;
+        border: 2px solid rgba(255,255,255,0.3); border-radius: 10px;
         outline: none; font-size: 16px;
-        background: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(5px);
-        transition: border-color 0.3s ease;
+        background: rgba(255,255,255,0.15); color: #fff; backdrop-filter: blur(5px);
+        transition: border-color 0.3s ease, transform 0.2s;
     }
     input::placeholder { color: rgba(255,255,255,0.7); }
-    input:focus { border-color: #ff4e50; }
+    input:focus { border-color: #4a90e2; transform: scale(1.02); }
 
     .show-password { 
         cursor: pointer; font-size: 18px; 
-        position: absolute; right: 20px; margin-top: -38px; 
+        position: absolute; right: 30px; margin-top: -42px; 
         color: #fff; 
     }
 
     input[type="submit"] {
-        background: #ff4e50; color: #fff; padding: 14px; width: 100%;
-        border: none; border-radius: 8px; font-size: 16px; cursor: pointer;
-        transition: background 0.3s ease;
+        background: #4a90e2; color: #fff; padding: 14px; width: 100%;
+        border: none; border-radius: 10px; font-size: 16px; cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s;
     }
-    input[type="submit"]:hover { background: #f33d3d; }
+    input[type="submit"]:hover { background: #357ab8; transform: scale(1.02); }
 
-    /* Toast chamativo */
+    /* Toast estilizado */
     #toast {
         visibility: hidden;
         min-width: 250px;
-        background: linear-gradient(45deg, #ff4e50, #f9d423);
+        background: linear-gradient(45deg, #4a90e2, #50c9c3);
         color: #fff;
         text-align: center;
         border-radius: 15px;
-        padding: 20px;
+        padding: 18px;
         position: fixed;
         z-index: 999;
         left: 50%; bottom: -100px;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         letter-spacing: 1px;
-        box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
         transform: translateX(-50%);
         opacity: 0;
-        transition: all 0.7s ease;
-        animation: pulse 1s infinite alternate;
+        transition: all 0.6s ease;
     }
 
     #toast.show {
         visibility: visible;
-        bottom: 50px;
+        bottom: 40px;
         opacity: 1;
     }
 
-    @keyframes pulse {
-        0% { transform: translateX(-50%) scale(1); }
-        100% { transform: translateX(-50%) scale(1.05); }
-    }
-
-    /* 📱 Ajustes para celular */
+    /* 📱 Ajustes mobile */
     @media (max-width: 480px) {
-        h1 { font-size: 20px; }
-        .container { padding: 20px; border-radius: 15px; }
+        h1 { font-size: 22px; }
+        .container { padding: 20px; }
         input[type="text"], input[type="password"], input[type="submit"] {
-            font-size: 14px; padding: 10px;
+            font-size: 14px; padding: 12px;
         }
-        .show-password {
-            right: 15px; margin-top: -34px;
-        }
+        .show-password { right: 20px; margin-top: -38px; }
     }
 </style>
 </head>
@@ -121,7 +111,7 @@
     </form>
 </div>
 
-<!-- Toast chamativo -->
+<!-- Toast -->
 <div id="toast"></div>
 
 <script>
