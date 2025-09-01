@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,10 +22,8 @@
     }
 
     .overlay {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100%;
+        position: absolute; top: 0; left: 0;
+        width: 100%; height: 100%;
         background: rgba(0,0,0,0.4);
         z-index: 1;
     }
@@ -47,51 +44,19 @@
         color: #fff;
     }
 
-    h1 {
-        font-size: 26px;
-        margin-bottom: 15px;
-    }
+    h1 { font-size: 26px; margin-bottom: 15px; }
 
-    /* Swiper container */
-    .swiper {
-        width: 100%;
-        max-width: 600px;
-        border-radius: 15px;
-        overflow: hidden;
-        margin: auto;
-    }
+    .swiper { width: 100%; max-width: 600px; border-radius: 15px; overflow: hidden; margin: auto; }
+    .swiper-slide img { width: 100%; display: block; border-radius: 15px; }
 
-    .swiper-slide img {
-        width: 100%;
-        display: block;
-        border-radius: 15px;
-    }
-
-    /* Botões */
     button {
-        background: #4a90e2; /* azul primário */
-        color: white;
-        border: none;
-        padding: 12px 18px;
-        font-size: 16px;
-        border-radius: 8px;
-        margin-top: 15px;
-        cursor: pointer;
-        transition: background 0.3s ease;
+        background: #4a90e2; color: white; border: none;
+        padding: 12px 18px; font-size: 16px; border-radius: 8px;
+        margin-top: 15px; cursor: pointer; transition: background 0.3s ease;
     }
+    button:hover { background: #357ab8; }
 
-    button:hover {
-        background: #357ab8;
-    }
-
-    iframe {
-        border-radius: 12px;
-        margin-top: 20px;
-        width: 100%;
-        max-width: 600px;
-        height: 340px;
-        border: none;
-    }
+    iframe { border-radius: 12px; margin-top: 20px; width: 100%; max-width: 600px; height: 340px; border: none; }
 
     @media (max-width: 480px) {
         h1 { font-size: 22px; }
@@ -113,48 +78,37 @@
                 <div class="swiper-slide"><img src="https://i.ibb.co/mcZnjjd/Imagem-do-Whats-App-de-2024-03-01-s-15-12-05-640aa4b5.jpg" alt="Imagem 3"></div>
                 <div class="swiper-slide"><img src="https://i.ibb.co/D8fLGyq/Imagem-do-Whats-App-de-2024-03-01-s-15-12-05-a8e06333.jpg" alt="Imagem 4"></div>
             </div>
-
-            <!-- Navegação -->
             <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
         </div>
 
-        <!-- Vídeo -->
-        <iframe src="https://player.vimeo.com/video/1114939788?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-        title="Vídeo do WhatsApp"></iframe>
+        <iframe src="https://player.vimeo.com/video/1114939788?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" title="Vídeo do WhatsApp"></iframe>
         
         <br>
         <button onclick="logout()">Sair</button>
     </div>
 
-<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script>
     if(sessionStorage.getItem("auth")!=="true"){
         window.location.href="login.html";
     }
+
     function logout(){
         sessionStorage.removeItem("auth");
         window.location.href="login.html";
     }
 
-    // Inicia carrossel
+    // Carrossel touch-friendly, sem setas
     const swiper = new Swiper(".mySwiper", {
         loop: true,
         autoplay: { delay: 3000 },
         pagination: { el: ".swiper-pagination", clickable: true },
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        slidesPerView: 1,
+        spaceBetween: 20,
+        grabCursor: true, // permite arrastar com mouse ou dedo
         effect: "coverflow",
-        coverflowEffect: {
-            rotate: 30,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-        }
+        coverflowEffect: { rotate: 30, stretch: 0, depth: 100, modifier: 1, slideShadows: true },
+        navigation: false // remove setas
     });
 </script>
 </body>
