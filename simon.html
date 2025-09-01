@@ -22,7 +22,9 @@
     .container {
         position: relative; z-index: 2;
         background: rgba(255,255,255,0.15);
-        border-radius: 20px; padding: 30px; width: 320px; text-align: center;
+        border-radius: 20px; padding: 25px;
+        width: 90%; max-width: 350px;
+        text-align: center;
         box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(255,255,255,0.3);
@@ -35,10 +37,10 @@
         to { opacity: 1; transform: scale(1); }
     }
 
-    h1 { margin-bottom: 20px; font-size: 26px; }
+    h1 { margin-bottom: 20px; font-size: 24px; }
 
     input[type="text"], input[type="password"] {
-        width: 90%; padding: 12px; margin: 10px 0;
+        width: 100%; padding: 12px; margin: 10px 0;
         border: 2px solid rgba(255,255,255,0.4); border-radius: 8px;
         outline: none; font-size: 16px;
         background: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(5px);
@@ -47,7 +49,11 @@
     input::placeholder { color: rgba(255,255,255,0.7); }
     input:focus { border-color: #ff4e50; }
 
-    .show-password { cursor: pointer; font-size: 18px; position: absolute; right: 50px; margin-top: -35px; color: #fff; }
+    .show-password { 
+        cursor: pointer; font-size: 18px; 
+        position: absolute; right: 20px; margin-top: -38px; 
+        color: #fff; 
+    }
 
     input[type="submit"] {
         background: #ff4e50; color: #fff; padding: 14px; width: 100%;
@@ -87,6 +93,18 @@
     @keyframes pulse {
         0% { transform: translateX(-50%) scale(1); }
         100% { transform: translateX(-50%) scale(1.05); }
+    }
+
+    /* 📱 Ajustes para celular */
+    @media (max-width: 480px) {
+        h1 { font-size: 20px; }
+        .container { padding: 20px; border-radius: 15px; }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            font-size: 14px; padding: 10px;
+        }
+        .show-password {
+            right: 15px; margin-top: -34px;
+        }
     }
 </style>
 </head>
